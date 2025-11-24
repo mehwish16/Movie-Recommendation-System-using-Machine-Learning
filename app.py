@@ -1,18 +1,15 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import pandas as pd
 import pickle
-from main2 import Filter  # Assuming main2.py contains your Filter class
-from main1 import KNN  # Ensure 'knn' is correctly imported
-import re
 
 # Load dataset once when the server starts
-data = pd.read_csv("C:\\Users\\ASUS\\Desktop\\RESUME_PROJECT\\movieRex\\IMDB-Movie-Dataset(2023-1951) (2).csv")
+data = pd.read_csv("IMDB-Movie-Dataset(2023-1951) (2).csv")
 
 data = data.dropna()
 
 # Initialize the Flask app
 app = Flask(__name__)
-app.config['BACKGROUND_IMAGE'] = 'static/background.jpg'
+# app.config['BACKGROUND_IMAGE'] = 'static/background.jpg'
 
 # Load the Filter object from the pickle file
 with open('filter_obj.pkl', 'rb') as file:
